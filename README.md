@@ -1,2 +1,3 @@
 # DataTables
-a kivy widget to create tabels
+a kivy widget to create Data Tabels 
+
