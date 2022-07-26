@@ -22,8 +22,8 @@ Builder.load_string("""
 
 <Label>:
     font_size: 32
-    background_color: (0, 1, 0, 1)
     color: (0.25, 0.5, 0.5, 1)
+
 <TextInput>:
     background_color: (0.9, .8, .8, 1)
     font_size: 32
@@ -71,11 +71,22 @@ Builder.load_string("""
         TextInput:
             multiline: False
             # font_size: 20
-            size_hint_x: .95
+            size_hint_x: .85
             pos_hint_x: {"right": 1}
             paddig: [10, 10, 10, 10]
         Button:
             text: "Search"
+            size_hint_x: .2
+        Label:
+            id: footer_label
+            canvas.before:
+                Color:
+                    rgba: (0.9, 0.5, 0.25, 0.45)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            text: ""
             size_hint_x: .2
 
     """)
@@ -104,6 +115,15 @@ class TableView(BoxLayout):
             self.remove_widget(self.ids.header_box)
 
     
+    def __shade_rows(self, widget, **kwargs):
+        with widget.canvas.after:
+            Color(0, .5, .5, .35, mode = 'rgba')
+            widget.rect = Rectangle(size = widget.size, pos = widget.pos)
+
+         # Listen to size and position changes
+        widget.bind(pos=self.update_rect, size=self.update_rect)
+
+
     def add_row(self, row):
         tg = GridLayout(cols =len(row), size_hint = (1, None), height = self.minimum_height, pos_hint = {'top': 1})
         
@@ -125,10 +145,17 @@ class TableView(BoxLayout):
         self.rows += 1
         self.ids.table_box.height = f"{self.rows * 54}dp"
 
+
+        self.ids.footer_label.text = f"<< {self.rows} >>rows"
+        self.ids.footer_label.font_size = (25)
+        self.ids.footer_label.color = (0, 0, 1, 1)
+
+
+
     def add_header(self, row):
         tg = GridLayout(cols =len(row), size_hint = (1, None), height = '54dp', pos_hint = {'top': 1})
         with tg.canvas.before:
-            (Color((random.random()), (random.random()), random.random(), .24, mode = 'rgba'))
+            (Color((random.random()), (random.random()), random.random(), .1, mode = 'rgba'))
             tg.rect = Rectangle(pos = tg.pos, size = tg.size)
 
         

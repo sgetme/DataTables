@@ -39,7 +39,11 @@ class TableApp(Screen):
 				[5, "Ambesaw", "Agesa", 72, "B"],
 				[5, "Bigg", "Agesa", 72, "B"],
 				[5, "End", "Agesa", 72, "B"],
-				
+				[6, "Jaga", "Aresa", 88, "A"],
+				[6, "Jaga", "Aresa", 88, "A"],
+				[6, "Jaga", "Aresa", 88, "A"],
+				[6, "Jaga", "Aresa", 88, "A"],
+				[6, "Jaga", "Aresa", 88, "A"],
 				[6, "Haile", "GEta", 83, "A-"]]
 
 		dt.add_header(cols)
