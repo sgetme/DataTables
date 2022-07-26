@@ -1,7 +1,7 @@
 # DataTables
-<<<<<<< HEAD
 
-### a kivy widget to create tabels
+
+### a kivy widget to create tabel view
 
 <b>currently the widget is under development and may not give full functionality</b>
 
