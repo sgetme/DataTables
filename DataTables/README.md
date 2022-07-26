@@ -11,6 +11,15 @@ fork and add your codes
 
 Currently it is under development and it may not give full functionality
 =======
+```
+From DataTables import TableView
 
 
+tv = TableView()
+
+tv.add_header(header)   # list of header row
+tv.add_row(row)  # list of row data
+
+```
+======
 >>>>>>> 0502a53255191a2687dbc84cb69566658b006309
